@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-var cors = require("cors");
+const cors = require("cors");
+const path = require('path');
 
 const register = require("./controllers/register");
 const signin = require("./controllers/signin");
@@ -12,9 +13,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-app.get("/", (req, res) => {
-  res.send({ express: "BACKEND IS RUNNING" });
-});
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+// Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
+
 
 ///////////////////////////signin////////////////////////
 

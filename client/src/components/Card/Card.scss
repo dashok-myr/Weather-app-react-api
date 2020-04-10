@@ -1,0 +1,36 @@
+.card {
+  width: 400px;
+}
+
+.icon {
+  position: relative;
+  top: -50px;
+  border-radius: 50%;
+  width: 100px;
+  margin-bottom: -50px;
+}
+
+.test {
+  width: 100%;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 5px;
+}
+
+.form {
+  background: linear-gradient(to right, #89253e8a, #3a618694); 
+  background-size: 400% 400%;
+  animation: gradient 100s ease infinite;
+}
+@keyframes gradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
