@@ -58,7 +58,7 @@ class App extends React.Component {
   //get city information
   getCity = async city => {
     const baseUrl =
-      "http://dataservice.accuweather.com/locations/v1/cities/search";
+      "https://dataservice.accuweather.com/locations/v1/cities/search";
     const query = `?apikey=${key}&q=${city}`;
 
     const response = await fetch(baseUrl + query);
@@ -69,7 +69,7 @@ class App extends React.Component {
 
   //get weather information
   getWeather = async cityId => {
-    const baseUrl = "http://dataservice.accuweather.com/currentconditions/v1/";
+    const baseUrl = "https://dataservice.accuweather.com/currentconditions/v1/";
     const query = `${cityId}?apikey=${key}`;
 
     const response = await fetch(baseUrl + query);
